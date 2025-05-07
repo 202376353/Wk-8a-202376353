@@ -1,6 +1,6 @@
 -- Library Management System Database
-
 -- Create database
+
 DROP DATABASE IF EXISTS library_management;
 CREATE DATABASE library_management;
 USE library_management;
@@ -87,7 +87,7 @@ CREATE TABLE book_items (
     barcode VARCHAR(50) UNIQUE NOT NULL,
     acquisition_date DATE NOT NULL,
     price DECIMAL(10,2),
-    condition ENUM('New', 'Good', 'Fair', 'Poor', 'Withdrawn') DEFAULT 'Good',
+    `condition` ENUM('New', 'Good', 'Fair', 'Poor', 'Withdrawn') DEFAULT 'Good',
     location VARCHAR(50),
     status ENUM('Available', 'Checked Out', 'Lost', 'Damaged', 'In Processing') DEFAULT 'Available',
     CONSTRAINT fk_item_book FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE
@@ -194,7 +194,7 @@ INSERT INTO book_categories (book_id, category_id) VALUES
 (5, 1), (5, 5);
 
 -- Insert book items
-INSERT INTO book_items (book_id, barcode, acquisition_date, price, condition, location, status) VALUES
+INSERT INTO book_items (book_id, barcode, acquisition_date, price, `condition`, location, status) VALUES
 (1, 'LIB-10001', '2020-01-15', 12.99, 'Good', 'Fiction Aisle 1', 'Available'),
 (1, 'LIB-10002', '2020-01-15', 12.99, 'Fair', 'Fiction Aisle 1', 'Available'),
 (2, 'LIB-20001', '2019-05-22', 14.99, 'Good', 'Children''s Section', 'Available'),
